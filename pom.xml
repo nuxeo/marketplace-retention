@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.nuxeo.ecm.distribution</groupId>
+    <artifactId>nuxeo-distribution</artifactId>
+    <version>10.10-HF11-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.nuxeo.marketplace.retention</groupId>
+  <artifactId>parent</artifactId>
+  <packaging>pom</packaging>
+  <name>Retention packaging parent POM</name>
+  <version>1.0.0-SNAPSHOT</version>
+
+  <modules>
+    <module>marketplace</module>
+  </modules>
+
+  <properties>
+    <marketplace.webui.version>2.4.11-SNAPSHOT</marketplace.webui.version>
+  </properties>
+
+  <profiles>
+    <profile>
+      <id>ftest</id>
+      <modules>
+        <module>ftest/web-ui/webdriver</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>web-ui-ftest</id>
+      <modules>
+        <module>ftest/web-ui/webdriver</module>
+      </modules>
+    </profile>
+  </profiles>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.nuxeo.web.ui</groupId>
+        <artifactId>nuxeo-web-ui-marketplace</artifactId>
+        <version>${marketplace.webui.version}</version>
+        <type>zip</type>
+      </dependency>
+
+      <dependency>
+        <groupId>org.nuxeo.marketplace.retention</groupId>
+        <artifactId>marketplace</artifactId>
+        <version>${project.version}</version>
+        <type>zip</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <repositories>
+    <repository>
+      <id>public</id>
+      <url>http://maven.nuxeo.org/nexus/content/groups/public</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>public-snapshot</id>
+      <url>http://maven.nuxeo.org/nexus/content/groups/public-snapshot</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <updatePolicy>always</updatePolicy>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <scm>
+    <connection>scm:git:git://github.com/nuxeo/marketplace-retention.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:nuxeo/marketplace-retention.git</developerConnection>
+    <url>https://github.com/nuxeo/marketplace-retention</url>
+  </scm>
+
+</project>

@@ -1,0 +1,25 @@
+<package type="addon" name="nuxeo-retention" version="@VERSION@">
+  <title>Nuxeo DAM</title>
+  <description>The Nuxeo Retention addon adds the capability to create and attach retention rules to documents in order to perform advanced record management
+  </description>
+  <home-page>https://doc.nuxeo.com/nxdoc/retention/</home-page>
+  <vendor>Nuxeo</vendor>
+  <installer restart="true" />
+  <uninstaller restart="true" />
+  <!-- <hotreload-support>false</hotreload-support> -->
+  <!-- <require-terms-and-conditions-acceptance>false -->
+  <!-- </require-terms-and-conditions-acceptance> -->
+  <nuxeo-validation>nuxeo_certified</nuxeo-validation>
+  <production-state>production_ready</production-state>
+  <supported>true</supported>
+  <platforms>
+    <platform>server-@DISTRIB_VERSION@</platform>
+    <platform>server-@DISTRIB_VERSION@-*</platform>
+  </platforms>
+  <optional-dependencies>
+    <package>nuxeo-web-ui</package>
+  </optional-dependencies>
+  <license>LGPL</license>
+  <license-url>http://www.gnu.org/licenses/lgpl.html</license-url>
+  <visibility>PUBLIC</visibility>
+</package>
