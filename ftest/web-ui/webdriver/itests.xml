@@ -13,6 +13,10 @@
             value="${out.dir}/nuxeo-web-ui-marketplace-${marketplace.webui.version}.zip,
     file:${out.dir}/marketplace-${maven.project.version}.zip" />
   <target name="prepare-environment" depends="_init,prepare-db,prepare-tomcat">
+    <antcall target="set-conf">
+      <param name="name" value="allowDeleteUndeletableDocuments" />
+      <param name="value" value="true" />
+    </antcall>
     <copy todir="${out.dir}">
       <artifact:file key="org.nuxeo.web.ui:nuxeo-web-ui-marketplace::zip" />
       <artifact:file key="org.nuxeo.marketplace.retention:marketplace::zip" />
