@@ -62,8 +62,8 @@ Then('I attach the {string} rule to the document', function (ruleName) {
   dialog.waitForVisible();
   const select = dialog.element('nuxeo-document-suggestion');
   fixtures.layouts.setValue(select, ruleName);
-  this.el.waitForEnabled('paper-button[name="add"]');
-  this.el.click('paper-button[name = "add"]');
+  dialog.waitForEnabled('paper-button[name="add"]');
+  dialog.click('paper-button[name = "add"]');
 });
 
 Then('I see the document is under retention', function () {
