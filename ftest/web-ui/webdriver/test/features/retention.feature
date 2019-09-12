@@ -16,7 +16,6 @@ Feature: Retention
     When I login as "John"
     Then I can see the retention menu
 
-  @watch
   Scenario: Immediate Manual Rule
     When I login as "John"
     And I go the retention rules location

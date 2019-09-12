@@ -22,6 +22,10 @@ Then('I can unset the legal hold on the document', function () {
   this.ui.browser.el.waitForExist('nuxeo-hold-toggle-button[hold]');
 });
 
+Then('I cannot set the legal hold on the document', function () {
+  this.ui.browser.el.waitForExist('nuxeo-hold-toggle-button', false);
+});
+
 Then('I cannot unset the legal hold on the document', function () {
   this.ui.browser.el.waitForExist('nuxeo-hold-toggle-button[hold]', false);
 });
