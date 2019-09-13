@@ -50,6 +50,15 @@ Then('I cannot see the retention menu', function () {
   this.ui.drawer.waitForNotVisible('nuxeo-menu-icon[name="retention"]');
 });
 
+Then('I go the retention event', function () {
+  let menu = this.ui.drawer.el;
+  if (!menu.isVisible('nuxeo-menu-item[name="events"]')) {
+    menu = this.ui.drawer.open('retention');
+  }
+  menu.waitForVisible('nuxeo-menu-item[name="events"]');
+  menu.element('nuxeo-menu-item[name="events"]').click();
+});
+
 Then('I go the retention rules location', function () {
   const menu = this.ui.drawer.open('retention');
   menu.waitForVisible('nuxeo-menu-item[name="rules"]');
@@ -67,6 +76,37 @@ Then('I attach the {string} rule to the document', function (ruleName) {
 });
 
 Then('I see the document is under retention', function () {
+  driver.waitUntil(() => {
+    driver.refresh();
+    const page = this.ui.browser.documentPage(this.doc.type);
+    page.infoBar.waitForVisible('#retentionInfoBar #retention');
+    return true;
+  });
+});
+
+Then('I see the document is under indeterminate retention', function () {
   const page = this.ui.browser.documentPage(this.doc.type);
-  page.infoBar.waitForVisible('#retentionInfoBar #retention');
+  page.infoBar.waitForVisible('#retentionInfoBar #indeterminateRetention');
+});
+
+Then('I have a "ContractEnd" retention event', function () {
+  fixtures.vocabularies.createEntry('RetentionEvent', 'Retention.ContractEnd', {
+      obsolete: 0,
+      id: 'Retention.ContractEnd',
+      label_en: "Contract End",
+      label_fr: 'Fin de contrat',
+  });
+});
+
+Then('I fire the {string} retention event with {string} input', function (eventName, eventInput) {
+  this.ui.el.waitForVisible('nuxeo-retention-events');
+  const evtsElement = this.ui.el.element('nuxeo-retention-events');
+  evtsElement.waitForVisible('nuxeo-directory-suggestion[name="event"]');
+  evtsElement.waitForVisible('nuxeo-input[name="eventInput"]');
+  const eventSelectElt = evtsElement.element('nuxeo-directory-suggestion[name="event"]');
+  const eventInputElt = evtsElement.element('nuxeo-input[name="eventInput"]');
+  fixtures.layouts.setValue(eventSelectElt, eventName);
+  fixtures.layouts.setValue(eventInputElt, eventInput);
+  evtsElement.waitForEnabled('paper-button[name="fire"]');
+  evtsElement.click('paper-button[name="fire"]');
 });

@@ -1,0 +1,1 @@
+/home/fox/10.10-workspace/mp/plugin-nuxeo-web-ui/nuxeo-web-ui-ftest/test/features/step_definitions/support/fixtures/vocabularies.js
