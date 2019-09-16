@@ -1,7 +1,7 @@
 import {
   After,
 } from 'cucumber';
-import nuxeo from '../services/client';
+import nuxeo from '@nuxeo/nuxeo-web-ui-ftest/test/features/step_definitions/support/services/client.js';
 
 global.addedVocabularyEntries = [];
 
