@@ -18,7 +18,7 @@ Feature: Retention
 
   Scenario: Immediate Manual Rule
     When I login as "John"
-    And I go the retention rules location
+    And I go to the retention rules location
     When I click the Create Document button
     And I select RetentionRule from the Document Type menu
     And I create a document with the following properties:
@@ -38,7 +38,7 @@ Feature: Retention
 
   Scenario: Metadata-based Manual Rule
     When I login as "John"
-    And I go the retention rules location
+    And I go to the retention rules location
     When I click the Create Document button
     And I select RetentionRule from the Document Type menu
     And I create a document with the following properties:
@@ -60,10 +60,11 @@ Feature: Retention
     Then I see the document is under retention
     And I cannot edit main blob
 
+  @watch
   Scenario: Event-based Manual Rule
     Given I have a "ContractEnd" retention event
     When I login as "John"
-    And I go the retention rules location
+    And I go to the retention rules location
     When I click the Create Document button
     And I select RetentionRule from the Document Type menu
     And I create a document with the following properties:
@@ -82,11 +83,11 @@ Feature: Retention
     When I attach the "ContractFooEnded" rule to the document
     Then I see the document is under indeterminate retention
     And I cannot edit main blob
-    When I go the retention event
+    When I go to the retention event
     And I fire the "Contract End" retention event with "bar" input
     And I browse to the document
     Then I see the document is under indeterminate retention
-    When I go the retention event
+    When I go to the retention event
     And I fire the "Contract End" retention event with "foo" input
     And I browse to the document
     Then I see the document is under retention

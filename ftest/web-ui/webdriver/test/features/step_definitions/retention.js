@@ -50,16 +50,13 @@ Then('I cannot see the retention menu', function () {
   this.ui.drawer.waitForNotVisible('nuxeo-menu-icon[name="retention"]');
 });
 
-Then('I go the retention event', function () {
-  let menu = this.ui.drawer.el;
-  if (!menu.isVisible('nuxeo-menu-item[name="events"]')) {
-    menu = this.ui.drawer.open('retention');
-  }
+Then('I go to the retention event', function () {
+  const menu = this.ui.drawer.open('retention');
   menu.waitForVisible('nuxeo-menu-item[name="events"]');
   menu.element('nuxeo-menu-item[name="events"]').click();
 });
 
-Then('I go the retention rules location', function () {
+Then('I go to the retention rules location', function () {
   const menu = this.ui.drawer.open('retention');
   menu.waitForVisible('nuxeo-menu-item[name="rules"]');
   menu.element('nuxeo-menu-item[name="rules"]').click();
