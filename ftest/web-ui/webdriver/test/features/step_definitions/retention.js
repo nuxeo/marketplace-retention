@@ -1,7 +1,13 @@
 import { Then } from 'cucumber';
 
-Then('I set a legal hold on the document', function () {
+Then('I set a legal hold on the document with description {string}', function (desc) {
   this.ui.browser.clickDocumentActionMenu('nuxeo-hold-toggle-button:not([hold])');
+  const dialog = this.ui.browser.el.element('nuxeo-hold-toggle-button #dialog');
+  dialog.waitForVisible();
+  const descInput = dialog.element('nuxeo-textarea[name="description"]');
+  fixtures.layouts.setValue(descInput, desc);
+  dialog.waitForEnabled('paper-button[name="hold"]');
+  dialog.click('paper-button[name = "hold"]');
 });
 
 Then('I unset the legal hold on the document', function () {

@@ -60,7 +60,6 @@ Feature: Retention
     Then I see the document is under retention
     And I cannot edit main blob
 
-  @watch
   Scenario: Event-based Manual Rule
     Given I have a "ContractEnd" retention event
     When I login as "John"

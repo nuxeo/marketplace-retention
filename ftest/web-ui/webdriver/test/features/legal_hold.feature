@@ -17,7 +17,7 @@ Feature: Legal Hold
     And I browse to the document
     Then I can see the "my document" document
     And I can edit main blob
-    When I set a legal hold on the document
+    When I set a legal hold on the document with description "My legal hold"
     Then I see the document is under legal hold
     And I cannot edit main blob
     When I logout
