@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.nuxeo.ecm.distribution</groupId>
     <artifactId>nuxeo-distribution</artifactId>
-    <version>10.10-HF14-SNAPSHOT</version>
+    <version>10.10-HF15-SNAPSHOT</version>
   </parent>
 
   <groupId>org.nuxeo.marketplace.retention</groupId>
@@ -17,7 +17,7 @@
   </modules>
 
   <properties>
-    <marketplace.webui.version>2.4.14-SNAPSHOT</marketplace.webui.version>
+    <marketplace.webui.version>2.4.15-SNAPSHOT</marketplace.webui.version>
   </properties>
 
   <profiles>
