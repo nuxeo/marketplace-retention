@@ -2,18 +2,21 @@ Feature: Legal Hold
 
   As a Legal Hold Manager, I can set and unset legal hold
 
-  Scenario: Set/Unset Legal Hold
-    Given user "John" exists
+  Background:
     Given user "Jack" exists
-    Given I have a File document
+    And I have a File document
     And This document has file "sample.png" for content
-    And "John" has ManageLegalHold permission on the document
     And "Jack" has ReadWrite permission on the document
+
+  Scenario: Cannot set Legal Hold without permissions
     When I login as "Jack"
     And I browse to the document
     Then I cannot set the legal hold on the document
-    When I logout
-    And I login as "John"
+
+  Scenario: Set/Unset Legal Hold
+    Given user "John" exists
+    And "John" has ManageLegalHold permission on the document
+    When I login as "John"
     And I browse to the document
     Then I can see the "my document" document
     And I can edit main blob
