@@ -58,14 +58,30 @@ Then('I cannot see the retention menu', function () {
 
 Then('I go to the retention event', function () {
   const menu = this.ui.drawer.open('retention');
-  menu.waitForVisible('nuxeo-menu-item[name="events"]');
-  menu.element('nuxeo-menu-item[name="events"]').click();
+  return driver.waitUntil(() => {
+    try {
+      // XXX click sometimes hits nuxeo-browser, resulting in an error
+      menu.waitForVisible('nuxeo-menu-item[name="events"]');
+      menu.click('nuxeo-menu-item[name="events"]');
+      return true;
+    } catch (e) {
+      return false;
+    }
+  });
 });
 
 Then('I go to the retention rules location', function () {
   const menu = this.ui.drawer.open('retention');
-  menu.waitForVisible('nuxeo-menu-item[name="rules"]');
-  menu.element('nuxeo-menu-item[name="rules"]').click();
+  return driver.waitUntil(() => {
+    try {
+      // XXX click sometimes hits nuxeo-browser, resulting in an error
+      menu.waitForVisible('nuxeo-menu-item[name="rules"]');
+      menu.click('nuxeo-menu-item[name="rules"]');
+      return true
+    } catch (e) {
+      return false;
+    }
+  });
 });
 
 Then('I attach the {string} rule to the document', function (ruleName) {
