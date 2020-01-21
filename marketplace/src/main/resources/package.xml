@@ -1,8 +1,8 @@
 <package type="addon" name="nuxeo-retention" version="@VERSION@">
-  <title>Nuxeo DAM</title>
+  <title>Nuxeo Retention</title>
   <description>The Nuxeo Retention addon adds the capability to create and attach retention rules to documents in order to perform advanced record management
   </description>
-  <home-page>https://doc.nuxeo.com/nxdoc/retention/</home-page>
+  <home-page>https://doc.nuxeo.com/retention-management/</home-page>
   <vendor>Nuxeo</vendor>
   <installer restart="true" />
   <uninstaller restart="true" />
