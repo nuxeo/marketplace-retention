@@ -3,21 +3,21 @@
   <parent>
     <groupId>org.nuxeo.ecm.distribution</groupId>
     <artifactId>nuxeo-distribution</artifactId>
-    <version>10.10-HF27-SNAPSHOT</version>
+    <version>10.10-HF26</version>
   </parent>
 
   <groupId>org.nuxeo.marketplace.retention</groupId>
   <artifactId>parent</artifactId>
   <packaging>pom</packaging>
   <name>Retention packaging parent POM</name>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 
   <modules>
     <module>marketplace</module>
   </modules>
 
   <properties>
-    <marketplace.webui.version>2.4.27-SNAPSHOT</marketplace.webui.version>
+    <marketplace.webui.version>2.4.26</marketplace.webui.version>
     <nuxeo.target.version>10.10</nuxeo.target.version>
   </properties>
 
