@@ -17,7 +17,7 @@
   </modules>
 
   <properties>
-    <marketplace.webui.version>2.4.36-SNAPSHOT</marketplace.webui.version>
+    <marketplace.webui.version>2.4.37-SNAPSHOT</marketplace.webui.version>
   </properties>
 
   <profiles>
