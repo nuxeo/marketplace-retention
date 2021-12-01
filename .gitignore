@@ -27,3 +27,4 @@ MANIFEST
 .settings
 .pydevproject
 node_modules
+.java-version
