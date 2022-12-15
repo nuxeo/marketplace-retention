@@ -17,7 +17,7 @@
   </modules>
 
   <properties>
-    <marketplace.webui.version>2.4.69-SNAPSHOT</marketplace.webui.version>
+    <marketplace.webui.version>2.4.70-SNAPSHOT</marketplace.webui.version>
     <nuxeo.target.version>10.10</nuxeo.target.version>
   </properties>
 
